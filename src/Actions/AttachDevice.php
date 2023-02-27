@@ -11,7 +11,7 @@ class AttachDevice
     public static function execute(DeviceRequest $request, ?User $user): Device
     {
         // ray($request);
-        $validated = (array)$request->validated();
+        $validated = (array) $request->validated();
         $device = Device::where('token', $validated['token'])->first();
         if (! $device) {
             $device = new Device();
