@@ -78,7 +78,7 @@ it('can attach a device', function () {
         ->toBe($user->id);
 });
 
-it('can create and attach a device at the same time', function () {
+it('an create and attach a device at the same time', function () {
     $deviceRequest = [
         'token' => fake()->iosMobileToken,
         'platform' => fake()->randomElement(DevicePlatform::cases())->value,

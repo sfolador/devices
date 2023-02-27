@@ -6,6 +6,7 @@ use Sfolador\Devices\Enums\DevicePlatform;
 use Sfolador\Devices\Enums\DeviceType;
 use Sfolador\Devices\Models\Device;
 use Sfolador\Devices\Requests\DeviceRequest;
+
 //
 //it('can create a device',function(){
 //    $requestParams = [

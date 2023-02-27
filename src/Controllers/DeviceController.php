@@ -20,7 +20,6 @@ class DeviceController extends Controller
 
     public function attach(DeviceRequest $deviceRequest): JsonResponse
     {
-        ray($deviceRequest);
         $device = AttachDevice::execute($deviceRequest, auth()->user());
 
         return response()->json($device);
