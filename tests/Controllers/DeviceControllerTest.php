@@ -27,6 +27,36 @@ it('can create a device', function () {
     $this->assertDatabaseHas('devices', $deviceRequest);
 });
 
+it('cannot create a device with no token', function () {
+    $deviceRequest = [
+        'platform' => DevicePlatform::ANDROID->value,
+        'type' => DeviceType::MOBILE->value,
+    ];
+
+    $response = post(route('devices:store'), $deviceRequest);
+    $response->assertInvalid('token');
+});
+
+it('cannot create a device with no platform', function () {
+    $deviceRequest = [
+        'type' => DeviceType::MOBILE->value,
+        'token' => fake()->uuid,
+    ];
+
+    $response = post(route('devices:store'), $deviceRequest);
+    $response->assertInvalid('platform');
+});
+
+it('cannot create a device with no type', function () {
+    $deviceRequest = [
+        'platform' => DevicePlatform::ANDROID->value,
+        'token' => fake()->uuid,
+    ];
+
+    $response = post(route('devices:store'), $deviceRequest);
+    $response->assertInvalid('type');
+});
+
 it('can attach a device', function () {
     $device = Device::factory()->ios()->create();
     $user = TestNotifiable::factory()->create();

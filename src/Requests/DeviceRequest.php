@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Sfolador\Devices\Requests;
@@ -20,5 +21,10 @@ class DeviceRequest extends FormRequest
             'type' => ['required', new Enum(DeviceType::class)],
             'token' => 'required|string',
         ];
+    }
+
+    public function authorize(): bool
+    {
+        return true;
     }
 }
