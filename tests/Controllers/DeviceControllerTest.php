@@ -13,7 +13,7 @@ it('can create a device', function () {
         'token' => fake()->uuid,
     ];
 
-    $response = post(route('devices:store'), $deviceRequest);
+    $response = post(route('devices:attach'), $deviceRequest);
     $response->assertOk();
 
     $device = $response->json();
@@ -33,7 +33,7 @@ it('cannot create a device with no token', function () {
         'type' => DeviceType::MOBILE->value,
     ];
 
-    $response = post(route('devices:store'), $deviceRequest);
+    $response = post(route('devices:attach'), $deviceRequest);
     $response->assertInvalid('token');
 });
 
@@ -43,7 +43,7 @@ it('cannot create a device with no platform', function () {
         'token' => fake()->uuid,
     ];
 
-    $response = post(route('devices:store'), $deviceRequest);
+    $response = post(route('devices:attach'), $deviceRequest);
     $response->assertInvalid('platform');
 });
 
@@ -53,7 +53,7 @@ it('cannot create a device with no type', function () {
         'token' => fake()->uuid,
     ];
 
-    $response = post(route('devices:store'), $deviceRequest);
+    $response = post(route('devices:attach'), $deviceRequest);
     $response->assertInvalid('type');
 });
 

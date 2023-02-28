@@ -20,6 +20,24 @@ You can install the package via composer:
 composer require sfolador/devices
 ```
 
+You can publish the config file with:
+
+```bash
+php artisan vendor:publish --tag="devices-config"
+```
+This is the contents of the published config file:
+
+```php
+return [
+     'allow_device_reassign' => false,
+];
+```
+
+if you set `allow_device_reassign` to true, it will be possible to 
+register a device for a user and then assign it to another user. This happens usually 
+in mobile applications with multi-accounts on the same device.
+
+
 You can publish and run the migrations with:
 
 ```bash

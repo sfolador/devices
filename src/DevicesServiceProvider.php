@@ -18,6 +18,7 @@ class DevicesServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('devices')
+            ->hasConfigFile('devices')
             ->hasRoutes('devices_routes')
             ->hasMigration('create_devices_table');
     }

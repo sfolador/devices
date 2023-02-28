@@ -7,20 +7,13 @@ namespace Sfolador\Devices\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Sfolador\Devices\Actions\AttachDevice;
-use Sfolador\Devices\Requests\DeviceRequest;
+use Sfolador\Devices\Data\DeviceData;
 
 class DeviceController extends Controller
 {
-    public function store(DeviceRequest $deviceRequest): JsonResponse
+    public function attach(DeviceData $deviceData): JsonResponse
     {
-        $device = AttachDevice::execute($deviceRequest, null);
-
-        return response()->json($device);
-    }
-
-    public function attach(DeviceRequest $deviceRequest): JsonResponse
-    {
-        $device = AttachDevice::execute($deviceRequest, auth()->user());
+        $device = AttachDevice::execute($deviceData, auth()->user());
 
         return response()->json($device);
     }
