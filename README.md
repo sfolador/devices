@@ -125,6 +125,8 @@ return [
 *Please remind that you need to obtain the authentication_key from Firebase*
 
 
+### Notifiable configuration
+
 You need to setup your notifiable class by adding the  `RouteNotifications` trait:
 
 ```php
