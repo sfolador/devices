@@ -5,7 +5,6 @@ namespace Sfolador\Devices\Data;
 use Illuminate\Validation\Rules\Enum;
 use Sfolador\Devices\Enums\DevicePlatform;
 use Sfolador\Devices\Enums\DeviceType;
-use Sfolador\Devices\Requests\DeviceRequest;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
 
@@ -17,15 +16,6 @@ class DeviceData extends Data
         public string $token,
     ) {
     }
-
-//    public static function fromRequest(DeviceRequest $request): self
-//    {
-//        return new self(
-//            $request->platform,
-//            $request->type,
-//            $request->token,
-//        );
-//    }
 
     public static function rules(ValidationContext $context): array
     {

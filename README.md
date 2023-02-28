@@ -57,6 +57,8 @@ the migration will create the `Devices` table and its columns will be:
 - `created_at` - the device creation date
 - `updated_at` - the device update date
 
+## Usage
+
 It's possible to use the `HasDevices` trait in your `User` model:
 
 ```php
@@ -75,20 +77,77 @@ $user = User::find(1);
 $user->devices;
 ```
 
-To register a new `Device`, for example from a mobil app, you can use the provided route `POST /api/devices/attach`:
+To register a new `Device`, for example from a mobile app, you can use the provided route `POST /api/devices/attach`:
 
 ```php
 Route::post('/devices/attach', [DeviceController::class, 'attach']);
 ```
 
+### Device parameters
 
 
 
-## Usage
+The register a Device you need a request with these parameters:
+
+```php
+
+$rules = [
+    'platform' => ['required', new Enum(DevicePlatform::class)],
+    'type' => ['required', new Enum(DeviceType::class)],
+    'token' => 'required|string',
+];
+
+```
+
+DevicePlatform is an Enum that can have these values: android, ios, web.
+DeviceType is an Enum that can have these values: mobile, web
+
+### Firebase notifications
+
+If needed, this package can send push notifications with Firebase through the use of : `kutia-software-company/larafirebase` (https://github.com/kutia-software-company/larafirebase) , 
+already present in the `composer.json`.
+
+You need to publish the configuration of `kutia-software-company/larafirebase` by launching:
+
+```bash
+php artisan vendor:publish --provider="Kutia\Larafirebase\Providers\LarafirebaseServiceProvider" 
+```
+you will find the `larafirebase.php` file in the config folder. The file looks like this:
+
+```php
+return [
+
+    'authentication_key' => null
+
+];
+```
+
+*Please remind that you need to obtain the authentication_key from Firebase*
 
 
+You need to setup your notifiable class by adding the  `RouteNotifications` trait:
 
+```php
 
+class User extends Model
+{
+    use HasDevices;
+    use RoutesNotifications;
+
+...
+```
+
+You are now ready to send a notification to the user:
+
+```php
+
+$user = User::find(1);
+$user->notify(new \Sfolador\Devices\Notifications\FirebasePushNotification('title','message'));
+
+```
+
+If you need more freedom on the notification fields you can always create another PushNotification class or extend
+`\Sfolador\Devices\Notifications\FirebasePushNotification`.
 
 ## Testing
 
