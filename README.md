@@ -80,7 +80,7 @@ To register a new `Device`, for example from a mobil app, you can use the provid
 ```php
 Route::post('/devices', [DeviceController::class, 'store']);
 ```
-or if authenticated you can use the route `POST /devices/attach`:
+or if authenticated you can use the route `POST /api/devices/attach`:
 
 ```php
 Route::post('/devices/attach', [DeviceController::class, 'attach']);
