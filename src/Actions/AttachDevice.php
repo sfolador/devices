@@ -18,15 +18,11 @@ class AttachDevice
         }
 
         if ($user) {
-            if ($device->notifiable && $device->notifiable->isNot($user)) {
-                if (config('devices.allow_device_reassign')) {
-                    $device->notifiable()->associate($user);
-                } else {
-                    throw new RuntimeException('Device already assigned to another user');
-                }
-            } else {
-                $device->notifiable()->associate($user);
+            if ($device->notifiable && $device->notifiable->isNot($user) && ! config('devices.allow_device_reassign')) {
+                throw new RuntimeException('Device already assigned to another user');
             }
+
+            $device->notifiable()->associate($user);
         }
 
         $device->save();
