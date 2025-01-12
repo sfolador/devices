@@ -30,6 +30,12 @@ jobs:
             carbon: ^2.71
             pest: ^2.8
             collision: ^8.1
+          - os: windows-latest
+            laravel: 10.*
+            testbench: ^8.0
+            carbon: ^2.63.0
+            pest: ^2.34.7  # Higher version for Windows compatibility
+            collision: ^7.0.0
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
