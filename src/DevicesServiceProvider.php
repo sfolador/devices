@@ -22,7 +22,7 @@ class DevicesServiceProvider extends PackageServiceProvider
             ->hasRoutes('devices_routes')
             ->hasMigrations(
                 ['create_devices_table',
-                'add_firebasetoken_devices_table',
+                    'add_firebasetoken_devices_table',
                     'add_indexes_for_tokens']);
 
     }

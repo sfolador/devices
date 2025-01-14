@@ -38,7 +38,6 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-
         Schema::create('testnotifiables', function (Blueprint $table) {
             $table->id();
 
@@ -53,9 +52,9 @@ class TestCase extends Orchestra
     {
         // Include and run each migration manually to ensure they execute
         $migrations = [
-            include __DIR__ . '/../../database/migrations/create_devices_table.php',
-            include __DIR__ . '/../../database/migrations/add_firebasetoken_devices_table.php',
-            include __DIR__ . '/../../database/migrations/add_indexes_for_tokens.php',
+            include __DIR__.'/../../database/migrations/create_devices_table.php',
+            include __DIR__.'/../../database/migrations/add_firebasetoken_devices_table.php',
+            include __DIR__.'/../../database/migrations/add_indexes_for_tokens.php',
         ];
 
         // Run each migration
