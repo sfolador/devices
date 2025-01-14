@@ -28,7 +28,7 @@ class Device extends Model
         'token',
         'notifiable_id',
         'notifiable_type',
-        'firebaseToken'
+        'firebase_token'
     ];
 
     protected $casts = [

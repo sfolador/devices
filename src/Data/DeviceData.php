@@ -14,6 +14,7 @@ class DeviceData extends Data
         public string $platform,
         public string $type,
         public string $token,
+        public ?string $firebase_token = null,
     ) {}
 
     public static function rules(ValidationContext $context): array
@@ -22,6 +23,7 @@ class DeviceData extends Data
             'platform' => ['required', new Enum(DevicePlatform::class)],
             'type' => ['required', new Enum(DeviceType::class)],
             'token' => 'required|string',
+            'firebase_token' => 'nullable|string',
         ];
     }
 }

@@ -35,6 +35,7 @@ it('can attach a device to a user', function () {
         'platform' => DevicePlatform::ANDROID->value,
         'type' => DeviceType::MOBILE->value,
         'token' => fake()->uuid,
+        'firebase_token' => fake()->uuid,
     ];
 
     $request = DeviceData::from($requestParams);
@@ -51,7 +52,9 @@ it('can attach a device to a user', function () {
         ->and($device->notifiable)
         ->toBeInstanceOf(TestNotifiable::class)
         ->and($device->notifiable)
-        ->id->toBe($user->id);
+        ->id->toBe($user->id)
+        ->and($device->firebase_token)
+        ->toBe($requestParams['firebase_token']);
 });
 
 it('cannot attach a device to a user if device already attached to another user', function () {
