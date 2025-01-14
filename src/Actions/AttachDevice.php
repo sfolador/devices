@@ -13,7 +13,7 @@ class AttachDevice
     {
         $device = Device::where('token', $request->token)->first();
         if (! $device) {
-            $device = new Device();
+            $device = new Device;
             $device->fill($request->toArray());
         }
 

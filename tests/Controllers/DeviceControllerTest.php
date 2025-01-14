@@ -1,10 +1,11 @@
 <?php
 
-use function Pest\Laravel\post;
 use Sfolador\Devices\Enums\DevicePlatform;
 use Sfolador\Devices\Enums\DeviceType;
 use Sfolador\Devices\Models\Device;
 use Sfolador\Devices\Tests\TestSupport\Models\TestNotifiable;
+
+use function Pest\Laravel\post;
 
 it('can create a device', function () {
     $deviceRequest = [
@@ -93,7 +94,7 @@ it('an create and attach a device at the same time', function () {
 
     $device = Device::where('token', $deviceRequest['token'])
         ->where('platform', $deviceRequest['platform'])
-            ->where('type', $deviceRequest['type'])->first();
+        ->where('type', $deviceRequest['type'])->first();
 
     expect($device->fresh()->notifiable)
         ->toBeInstanceOf(TestNotifiable::class)

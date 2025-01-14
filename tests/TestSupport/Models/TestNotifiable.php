@@ -9,8 +9,8 @@ use Sfolador\Devices\Models\Concerns\HasDevices;
 
 class TestNotifiable extends BaseUser
 {
-    use HasFactory;
     use HasDevices;
+    use HasFactory;
     use RoutesNotifications;
 
     protected $table = 'testnotifiables';
