@@ -2,6 +2,10 @@
 
 All notable changes to `devices` will be documented in this file.
 
+## Firebase token - 2025-01-14
+
+- Added firebase_token column to devices table
+
 ## Laravel 11 compatibility - Breaking Changes - 2025-01-14
 
 - added L11 compatibility
