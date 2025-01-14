@@ -18,6 +18,7 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Sfolador\\Devices\\Tests\\TestSupport\\Factories\\'.class_basename($modelName).'Factory'
         );
+        $this->runMigrations();
     }
 
     protected function getPackageProviders($app)
@@ -37,8 +38,6 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-        $migration = include __DIR__.'/../../database/migrations/create_devices_table.php';
-        $migration->up();
 
         Schema::create('testnotifiables', function (Blueprint $table) {
             $table->id();
@@ -48,5 +47,20 @@ class TestCase extends Orchestra
 
             $table->timestamps();
         });
+    }
+
+    protected function runMigrations(): void
+    {
+        // Include and run each migration manually to ensure they execute
+        $migrations = [
+            include __DIR__ . '/../../database/migrations/create_devices_table.php',
+            include __DIR__ . '/../../database/migrations/add_firebasetoken_devices_table.php',
+            include __DIR__ . '/../../database/migrations/add_indexes_for_tokens.php',
+        ];
+
+        // Run each migration
+        foreach ($migrations as $migration) {
+            $migration->up();
+        }
     }
 }

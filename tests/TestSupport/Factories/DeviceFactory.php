@@ -18,6 +18,7 @@ class DeviceFactory extends Factory
             'type' => $this->faker->randomElement(DeviceType::cases()),
             'platform' => $this->faker->randomElement(DevicePlatform::cases()),
             'token' => $this->faker->uuid,
+            'firebase_token' => $this->faker->uuid,
             'notifiable_id' => null,
             'notifiable_type' => null,
         ];

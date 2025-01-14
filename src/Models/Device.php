@@ -15,6 +15,7 @@ use Sfolador\Devices\Enums\DeviceType;
  * @property DeviceType $type
  * @property DevicePlatform $platform
  * @property string $token
+ * @property string $firebaseToken
  */
 class Device extends Model
 {
@@ -27,6 +28,7 @@ class Device extends Model
         'token',
         'notifiable_id',
         'notifiable_type',
+        'firebaseToken'
     ];
 
     protected $casts = [

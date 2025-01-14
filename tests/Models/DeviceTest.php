@@ -20,6 +20,21 @@ it('can have a name', function () {
     expect($device->name)->toBe('test');
 });
 
+it('can have a token', function () {
+    $device = Device::factory()->ios()->create(['token' => 'test']);
+    expect($device->token)->toBe('test');
+});
+
+it('can have a firebase token', function () {
+    $device = Device::factory()->ios()->create(['firebase_token' => 'test']);
+    expect($device->firebase_token)->toBe('test');
+});
+
+it('the firebase token can be null', function () {
+    $device = Device::factory()->ios()->create(['firebase_token' => null]);
+    expect($device->firebase_token)->toBeNull();
+});
+
 it('can have a null notifiable', function () {
     TestNotifiable::factory()->create();
     $device = Device::factory()->create();

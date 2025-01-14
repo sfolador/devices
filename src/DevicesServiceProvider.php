@@ -20,7 +20,11 @@ class DevicesServiceProvider extends PackageServiceProvider
             ->name('devices')
             ->hasConfigFile('devices')
             ->hasRoutes('devices_routes')
-            ->hasMigration('create_devices_table');
+            ->hasMigrations(
+                ['create_devices_table',
+                'add_firebasetoken_devices_table',
+                    'add_indexes_for_tokens']);
+
     }
 
     public function registeringPackage(): void
