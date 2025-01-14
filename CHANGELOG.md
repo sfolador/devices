@@ -2,6 +2,10 @@
 
 All notable changes to `devices` will be documented in this file.
 
+## Firebase token - request - 2025-01-14
+
+Fixed request with firebase token
+
 ## Firebase token - 2025-01-14
 
 - Added firebase_token column to devices table
