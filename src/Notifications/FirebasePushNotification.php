@@ -10,9 +10,7 @@ use Kutia\Larafirebase\Messages\FirebaseMessage;
 
 class FirebasePushNotification extends Notification
 {
-    public function __construct(public string $title, public string $message)
-    {
-    }
+    public function __construct(public string $title, public string $message) {}
 
     /**
      * @param  mixed  $notifiable
@@ -26,7 +24,7 @@ class FirebasePushNotification extends Notification
     /**
      * @param  mixed  $notifiable
      */
-    public function toFirebase($notifiable): Response|null
+    public function toFirebase($notifiable): ?Response
     {
         /* @phpstan-ignore-next-line */
         if ($notifiable->devices->count() == 0) {

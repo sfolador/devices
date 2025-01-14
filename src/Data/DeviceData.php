@@ -14,8 +14,7 @@ class DeviceData extends Data
         public string $platform,
         public string $type,
         public string $token,
-    ) {
-    }
+    ) {}
 
     public static function rules(ValidationContext $context): array
     {
