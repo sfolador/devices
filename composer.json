@@ -16,21 +16,20 @@
         }
     ],
     "require": {
-        "php": "^8.1|^8.2|^8.3",
+        "php": "^8.1|^8.2|^8.3|^8.4",
         "guzzlehttp/guzzle": "^7.5",
         "illuminate/contracts": "^10.0|^11.0",
         "spatie/laravel-data": "^3.1",
-        "spatie/laravel-package-tools": "^1.14.0",
-        "kutia-software-company/larafirebase": "1.1"
+        "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.9",
+        "nunomaduro/collision": "^7.9|^8.0",
         "larastan/larastan": "^2.0.1",
-        "orchestra/testbench": "^8.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-arch": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
+        "orchestra/testbench": "^8.0|^9.0",
+        "pestphp/pest": "^2.0|^3.0",
+        "pestphp/pest-plugin-arch": "^2.0|^3.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
@@ -39,8 +38,7 @@
     "autoload": {
         "psr-4": {
             "Sfolador\\Devices\\": "src",
-            "Sfolador\\Devices\\Database\\Factories\\": "database/factories",
-            "Kutia\\Larafirebase\\": "vendor/kutia-software-company/larafirebase/src"
+            "Sfolador\\Devices\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
@@ -72,25 +70,6 @@
             }
         }
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "kutia-software-company/larafirebase",
-                "version": "1.1",
-                    "source": {
-                    "url": "https://github.com/sfolador/larafirebase.git",
-                    "type": "git",
-                    "reference": "1.1"
-                },
-                "autoload": {
-                    "psr-4": {
-                        "Kutia\\Larafirebase\\": "src/"
-                    }
-                }
-            }
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
