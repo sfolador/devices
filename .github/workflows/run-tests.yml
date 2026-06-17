@@ -64,6 +64,9 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
+        # Force bash so the caret (^) in version constraints is not stripped by
+        # PowerShell on Windows, which would turn e.g. "^3.0" into "3.0".
+        shell: bash
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" "pestphp/pest:${{ matrix.pest }}" "nunomaduro/collision:${{ matrix.collision }}" --dev --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
