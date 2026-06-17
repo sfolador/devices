@@ -2,6 +2,24 @@
 
 All notable changes to `devices` will be documented in this file.
 
+## Laravel 12 compatibility - 2026-06-17
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot[bot] in https://github.com/sfolador/devices/pull/18
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot[bot] in https://github.com/sfolador/devices/pull/19
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot[bot] in https://github.com/sfolador/devices/pull/20
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/sfolador/devices/pull/21
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/sfolador/devices/pull/23
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/sfolador/devices/pull/27
+* Add Laravel 12 support by @sfolador in https://github.com/sfolador/devices/pull/31
+
+### New Contributors
+
+* @sfolador made their first contribution in https://github.com/sfolador/devices/pull/31
+
+**Full Changelog**: https://github.com/sfolador/devices/compare/1.2...1.3
+
 ## Firebase token - request - 2025-01-14
 
 Fixed request with firebase token
