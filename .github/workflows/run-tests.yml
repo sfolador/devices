@@ -18,16 +18,18 @@ jobs:
         stability: [ prefer-lowest, prefer-stable ]
         include:
           # Laravel 10 configurations
+          # Pest >=2.36.0: earlier 2.34.x fails to expose the testbench
+          # static $latestResponse property on Pest's proxy test class.
           - laravel: 10.*
             testbench: ^8.8
             carbon: ^2.67.0
-            pest: ^2.34.7
+            pest: ^2.36.0
             collision: ^7.10.0
           # Laravel 11 configurations
           - laravel: 11.*
             testbench: ^9.0.0
             carbon: ^2.72.2
-            pest: ^2.34.7
+            pest: ^2.36.0
             collision: ^8.1.1
           # Laravel 12 configurations
           - laravel: 12.*
