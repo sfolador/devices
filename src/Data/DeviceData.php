@@ -17,6 +17,9 @@ class DeviceData extends Data
         public ?string $firebase_token = null,
     ) {}
 
+    /**
+     * @return array<string, mixed>
+     */
     public static function rules(ValidationContext $context): array
     {
         return [

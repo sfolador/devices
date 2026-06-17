@@ -37,7 +37,7 @@ class Device extends Model
     ];
 
     /**
-     * @return MorphTo<Model,Device>
+     * @return MorphTo<Model, $this>
      */
     public function notifiable(): MorphTo
     {

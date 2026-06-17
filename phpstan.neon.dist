@@ -9,5 +9,15 @@ parameters:
     tmpDir: build/phpstan
     checkOctaneCompatibility: true
     checkModelProperties: true
-    checkMissingIterableValueType: false
+    ignoreErrors:
+        # HasDevices is a public trait meant to be used by consumer models,
+        # so it is never used within the package's own analysed source.
+        -
+            identifier: trait.unused
+            path: src/Models/Concerns/HasDevices.php
+        # The Device factory is only provided for the test suite (which is not
+        # part of the analysed paths), so no concrete TFactory exists in src.
+        -
+            identifier: missingType.generics
+            path: src/Models/Device.php
 
